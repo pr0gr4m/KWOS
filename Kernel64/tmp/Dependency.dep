@@ -1,0 +1,138 @@
+HardDisk.o: ../src/HardDisk.c ../src/HardDisk.h ../src/Types.h \
+ ../src/Synchronization.h ../src/AssemblyUtility.h ../src/Task.h \
+ ../src/List.h ../src/Utility.h ../src/Console.h ../src/Queue.h \
+ ../src/Keyboard.h
+EnglishFont.o: ../src/EnglishFont.c
+IOAPIC.o: ../src/IOAPIC.c ../src/IOAPIC.h ../src/Types.h \
+ ../src/MPConfigurationTable.h ../src/PIC.h ../src/Utility.h \
+ ../src/Console.h ../src/Synchronization.h ../src/Queue.h \
+ ../src/Keyboard.h
+FileSystem.o: ../src/FileSystem.c ../src/FileSystem.h ../src/Types.h \
+ ../src/Synchronization.h ../src/HardDisk.h ../src/Task.h ../src/List.h \
+ ../src/CacheManager.h ../src/DynamicMemory.h ../src/Utility.h \
+ ../src/RAMDisk.h ../src/Console.h ../src/Queue.h ../src/Keyboard.h
+LocalAPIC.o: ../src/LocalAPIC.c ../src/LocalAPIC.h ../src/Types.h \
+ ../src/MPConfigurationTable.h ../src/IOAPIC.h
+Main.o: ../src/Main.c ../src/Types.h ../src/Keyboard.h \
+ ../src/Synchronization.h ../src/Descriptor.h ../src/MultiProcessor.h \
+ ../src/PIC.h ../src/AssemblyUtility.h ../src/Task.h ../src/List.h \
+ ../src/Utility.h ../src/Console.h ../src/Queue.h ../src/ConsoleShell.h \
+ ../src/PIT.h ../src/DynamicMemory.h ../src/HardDisk.h \
+ ../src/FileSystem.h ../src/CacheManager.h ../src/SerialPort.h \
+ ../src/LocalAPIC.h ../src/VBE.h ../src/2DGraphics.h ../src/Mouse.h \
+ ../src/MPConfigurationTable.h ../src/IOAPIC.h ../src/WindowManagerTask.h \
+ ../src/SystemCall.h ../src/Font.h ../../ext/stb/stb_truetype.h
+VBE.o: ../src/VBE.c ../src/VBE.h ../src/Types.h
+Synchronization.o: ../src/Synchronization.c ../src/Synchronization.h \
+ ../src/Types.h ../src/Utility.h ../src/Task.h ../src/List.h \
+ ../src/AssemblyUtility.h ../src/MultiProcessor.h
+Queue.o: ../src/Queue.c ../src/Queue.h ../src/Types.h ../src/Utility.h
+ConsoleShell.o: ../src/ConsoleShell.c ../src/ConsoleShell.h \
+ ../src/Types.h ../src/Console.h ../src/Synchronization.h ../src/Queue.h \
+ ../src/Keyboard.h ../src/PIT.h ../src/RTC.h ../src/Utility.h \
+ ../src/AssemblyUtility.h ../src/Task.h ../src/List.h \
+ ../src/DynamicMemory.h ../src/HardDisk.h ../src/FileSystem.h \
+ ../src/CacheManager.h ../src/SerialPort.h ../src/MPConfigurationTable.h \
+ ../src/IOAPIC.h ../src/PIC.h ../src/MultiProcessor.h ../src/LocalAPIC.h \
+ ../src/InterruptHandler.h ../src/VBE.h ../src/SystemCall.h \
+ ../src/Loader.h
+PIT.o: ../src/PIT.c ../src/PIT.h ../src/Types.h ../src/AssemblyUtility.h \
+ ../src/Task.h ../src/List.h ../src/Synchronization.h
+SerialPort.o: ../src/SerialPort.c ../src/SerialPort.h ../src/Types.h \
+ ../src/Queue.h ../src/Synchronization.h ../src/Utility.h \
+ ../src/AssemblyUtility.h ../src/Task.h ../src/List.h
+Utility.o: ../src/Utility.c ../src/Utility.h ../src/Types.h \
+ ../src/AssemblyUtility.h ../src/Task.h ../src/List.h \
+ ../src/Synchronization.h ../src/VBE.h
+Loader.o: ../src/Loader.c ../src/Loader.h ../src/Types.h ../src/Task.h \
+ ../src/List.h ../src/Synchronization.h ../src/FileSystem.h \
+ ../src/HardDisk.h ../src/CacheManager.h ../src/DynamicMemory.h \
+ ../src/Utility.h ../src/Console.h ../src/Queue.h ../src/Keyboard.h
+MPConfigurationTable.o: ../src/MPConfigurationTable.c \
+ ../src/MPConfigurationTable.h ../src/Types.h ../src/IOAPIC.h \
+ ../src/Console.h ../src/Synchronization.h ../src/Queue.h \
+ ../src/Keyboard.h ../src/Utility.h
+DynamicMemory.o: ../src/DynamicMemory.c ../src/DynamicMemory.h \
+ ../src/Types.h ../src/Task.h ../src/List.h ../src/Synchronization.h \
+ ../src/Utility.h
+GUITask.o: ../src/GUITask.c ../src/GUITask.h ../src/Types.h \
+ ../src/Window.h ../src/Synchronization.h ../src/2DGraphics.h \
+ ../src/List.h ../src/Queue.h ../src/Keyboard.h ../src/Utility.h \
+ ../src/Console.h ../src/Font.h ../../ext/stb/stb_truetype.h \
+ ../src/MultiProcessor.h ../src/MPConfigurationTable.h ../src/IOAPIC.h \
+ ../src/DynamicMemory.h ../src/Task.h ../src/ConsoleShell.h \
+ ../src/FileSystem.h ../src/HardDisk.h ../src/CacheManager.h \
+ ../src/JPEG.h
+WallPaper.o: ../src/WallPaper.c
+CacheManager.o: ../src/CacheManager.c ../src/CacheManager.h \
+ ../src/Types.h ../src/FileSystem.h ../src/Synchronization.h \
+ ../src/HardDisk.h ../src/Task.h ../src/List.h ../src/DynamicMemory.h \
+ ../src/Utility.h ../src/Console.h ../src/Queue.h ../src/Keyboard.h
+Descriptor.o: ../src/Descriptor.c ../src/Descriptor.h ../src/Types.h \
+ ../src/MultiProcessor.h ../src/Utility.h ../src/ISR.h
+Console.o: ../src/Console.c ../src/Console.h ../src/Types.h \
+ ../src/Synchronization.h ../src/Queue.h ../src/Keyboard.h \
+ ../src/Utility.h ../src/AssemblyUtility.h ../src/Task.h ../src/List.h
+InterruptHandler.o: ../src/InterruptHandler.c ../src/InterruptHandler.h \
+ ../src/Types.h ../src/MultiProcessor.h ../src/PIC.h ../src/Keyboard.h \
+ ../src/Synchronization.h ../src/Console.h ../src/Queue.h \
+ ../src/Utility.h ../src/Task.h ../src/List.h ../src/Descriptor.h \
+ ../src/AssemblyUtility.h ../src/HardDisk.h ../src/LocalAPIC.h \
+ ../src/MPConfigurationTable.h ../src/IOAPIC.h ../src/Mouse.h
+WindowManagerTask.o: ../src/WindowManagerTask.c ../src/Types.h \
+ ../src/Window.h ../src/Synchronization.h ../src/2DGraphics.h \
+ ../src/List.h ../src/Queue.h ../src/Keyboard.h \
+ ../src/WindowManagerTask.h ../src/VBE.h ../src/Mouse.h ../src/Task.h \
+ ../src/MultiProcessor.h ../src/Utility.h ../src/GUITask.h \
+ ../src/ApplicationPanelTask.h ../src/Font.h ../../ext/stb/stb_truetype.h
+Mouse.o: ../src/Mouse.c ../src/Mouse.h ../src/Types.h \
+ ../src/Synchronization.h ../src/Keyboard.h ../src/Queue.h \
+ ../src/AssemblyUtility.h ../src/Task.h ../src/List.h ../src/Utility.h
+SystemCall.o: ../src/SystemCall.c ../src/SystemCall.h ../src/Types.h \
+ ../src/AssemblyUtility.h ../src/Task.h ../src/List.h \
+ ../src/Synchronization.h ../src/Descriptor.h ../src/MultiProcessor.h \
+ ../src/SystemCallList.h ../src/FileSystem.h ../src/HardDisk.h \
+ ../src/CacheManager.h ../src/SerialPort.h ../src/Queue.h \
+ ../src/DynamicMemory.h ../src/Console.h ../src/Keyboard.h ../src/RTC.h \
+ ../src/Utility.h ../src/Window.h ../src/2DGraphics.h ../src/JPEG.h \
+ ../src/Loader.h
+2DGraphics.o: ../src/2DGraphics.c ../src/2DGraphics.h ../src/Types.h \
+ ../src/VBE.h ../src/Font.h ../../ext/stb/stb_truetype.h ../src/Utility.h
+Window.o: ../src/Window.c ../src/Window.h ../src/Types.h \
+ ../src/Synchronization.h ../src/2DGraphics.h ../src/List.h \
+ ../src/Queue.h ../src/Keyboard.h ../src/Utility.h ../src/Console.h \
+ ../src/VBE.h ../src/Font.h ../../ext/stb/stb_truetype.h ../src/Task.h \
+ ../src/DynamicMemory.h ../src/MultiProcessor.h ../src/JPEG.h
+List.o: ../src/List.c ../src/List.h ../src/Types.h
+ApplicationPanelTask.o: ../src/ApplicationPanelTask.c \
+ ../src/ApplicationPanelTask.h ../src/Types.h ../src/Window.h \
+ ../src/Synchronization.h ../src/2DGraphics.h ../src/List.h \
+ ../src/Queue.h ../src/Keyboard.h ../src/Font.h \
+ ../../ext/stb/stb_truetype.h ../src/RTC.h ../src/Task.h ../src/GUITask.h \
+ ../src/Utility.h ../src/Console.h
+Font.o: ../src/Font.c ../src/Font.h ../../ext/stb/stb_truetype.h \
+ ../src/FileSystem.h ../src/Types.h ../src/Synchronization.h \
+ ../src/HardDisk.h ../src/Task.h ../src/List.h ../src/CacheManager.h \
+ ../src/DynamicMemory.h ../src/Utility.h
+HangulFont.o: ../src/HangulFont.c
+RAMDisk.o: ../src/RAMDisk.c ../src/RAMDisk.h ../src/Types.h \
+ ../src/Synchronization.h ../src/HardDisk.h ../src/Utility.h \
+ ../src/DynamicMemory.h ../src/Task.h ../src/List.h
+JPEG.o: ../src/JPEG.c ../src/JPEG.h ../src/Types.h ../src/2DGraphics.h
+PIC.o: ../src/PIC.c ../src/PIC.h ../src/Types.h ../src/AssemblyUtility.h \
+ ../src/Task.h ../src/List.h ../src/Synchronization.h
+Keyboard.o: ../src/Keyboard.c ../src/Types.h ../src/AssemblyUtility.h \
+ ../src/Task.h ../src/List.h ../src/Synchronization.h ../src/Utility.h \
+ ../src/Keyboard.h ../src/Queue.h ../src/Mouse.h
+RTC.o: ../src/RTC.c ../src/RTC.h ../src/Types.h ../src/AssemblyUtility.h \
+ ../src/Task.h ../src/List.h ../src/Synchronization.h
+Task.o: ../src/Task.c ../src/Task.h ../src/Types.h ../src/List.h \
+ ../src/Synchronization.h ../src/Utility.h ../src/AssemblyUtility.h \
+ ../src/Descriptor.h ../src/MultiProcessor.h ../src/Console.h \
+ ../src/Queue.h ../src/Keyboard.h ../src/MPConfigurationTable.h \
+ ../src/IOAPIC.h ../src/DynamicMemory.h
+MultiProcessor.o: ../src/MultiProcessor.c ../src/MultiProcessor.h \
+ ../src/Types.h ../src/MPConfigurationTable.h ../src/IOAPIC.h \
+ ../src/AssemblyUtility.h ../src/Task.h ../src/List.h \
+ ../src/Synchronization.h ../src/Utility.h ../src/LocalAPIC.h \
+ ../src/PIT.h ../src/PIC.h ../src/InterruptHandler.h

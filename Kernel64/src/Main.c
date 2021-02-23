@@ -21,9 +21,11 @@
 #include "MPConfigurationTable.h"
 #include "WindowManagerTask.h"
 #include "SystemCall.h"
+#include "Font.h"
 
 void MainForApplicationProcessor(void);
 
+Font g_fontSystemDefault_0;
 void Main(void)
 {
 	int iCursorX, iCursorY;

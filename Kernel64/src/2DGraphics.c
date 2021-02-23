@@ -281,69 +281,58 @@ void kInternalDrawCircle(const RECT* pstMemoryArea, COLOR* pstMemoryAddress,
 	}
 }
 
+void kInternalDrawTextWithFont(const RECT*pstMemoryArea,COLOR*pstMemoryAddress,int iX,int iY,COLOR stTextColor,COLOR stBackgroundColor,const char*pcString,int iLength,Font*font){
+ float scale;
+ int x,y,i;
+ stbtt_bakedchar*b;
+ int dst_stride;
+ int src_stride;
+ int copy_w;
+ int copy_h;
+ int dst_x0;
+ int dst_y0;
+ int dst_x1;
+ int dst_y1;
+ BYTE*src_ptr;
+ BYTE*src_ptr_0;
+ BYTE*dst_pixels;
+ BYTE*dst_ptr;
+ BYTE*dst_ptr_0;
+ dst_stride=4*kGetRectangleWidth(pstMemoryArea);
+ dst_pixels=(BYTE*)pstMemoryAddress;
+ src_stride=font->baked_width;
+ while(*pcString){
+  if(*pcString>=32&&*pcString<128){
+   b=font->baked+(*pcString-32);
+   copy_w=b->x1-b->x0;
+   copy_h=b->y1-b->y0;
+   dst_x0=x+b->xoff;
+   dst_x1=dst_x0+b->x1-b->x0;
+   dst_y0=y+b->yoff;
+   dst_y1=dst_y0+b->y1-b->y0;
+   src_ptr_0=font->baked_pixels+src_stride*b->y0+b->x0;
+   dst_ptr_0=dst_pixels+dst_stride*dst_y0+dst_x0;
+   for(y=0;y<copy_h;y++){
+    dst_ptr=dst_ptr_0;
+    src_ptr=src_ptr_0;
+    for(x=0;x<copy_w;x++){
+     *dst_ptr++=*src_ptr;
+     *dst_ptr++=*src_ptr;
+     *dst_ptr++=*src_ptr;
+     *dst_ptr++=*src_ptr++;
+    }
+    dst_ptr_0+=dst_stride;
+    src_ptr_0+=src_stride;
+   }
+   dst_x0+=b->xadvance;
+  }
+  ++pcString;
+ }
+}
 void kInternalDrawText(const RECT* pstMemoryArea, COLOR* pstMemoryAddress,
 		int iX, int iY, COLOR stTextColor, COLOR stBackgroundColor,
 		const char* pcString, int iLength)
 {
-	int iCurrentX, iCurrentY;
-	int i, j, k;
-	BYTE bBitmap;
-	BYTE bCurrentBitmask;
-	int iBitmapStartIndex;
-	int iMemoryAreaWidth;
-	RECT stFontArea;
-	RECT stOverlappedArea;
-	int iStartYOffset;
-	int iStartXOffset;
-	int iOverlappedWidth;
-	int iOverlappedHeight;
-
-	iCurrentX = iX;
-
-	iMemoryAreaWidth = kGetRectangleWidth(pstMemoryArea);
-
-	for (k = 0; k < iLength; k++)
-	{
-		iCurrentY = iY * iMemoryAreaWidth;
-
-		kSetRectangleData(iCurrentX, iY, iCurrentX + FONT_ENGLISHWIDTH - 1,
-				iY + FONT_ENGLISHHEIGHT - 1, &stFontArea);
-
-		if (kGetOverlappedRectangle(pstMemoryArea, &stFontArea,
-					&stOverlappedArea) == FALSE)
-		{
-			iCurrentX += FONT_ENGLISHWIDTH;
-			continue;
-		}
-
-		iBitmapStartIndex = pcString[k] * FONT_ENGLISHHEIGHT;
-
-		iStartXOffset = stOverlappedArea.iX1 - iCurrentX;
-		iStartYOffset = stOverlappedArea.iY1 - iY;
-		iOverlappedWidth = kGetRectangleWidth(&stOverlappedArea);
-		iOverlappedHeight = kGetRectangleHeight(&stOverlappedArea);
-
-		iBitmapStartIndex += iStartYOffset;
-
-		for (j = iStartYOffset; j < iOverlappedHeight; j++)
-		{
-			bBitmap = g_vucEnglishFont[iBitmapStartIndex++];
-			bCurrentBitmask = 0x01 << (FONT_ENGLISHWIDTH - 1 - iStartXOffset);
-
-			for (i = iStartXOffset; i < iOverlappedWidth; i++)
-			{
-				if (bBitmap & bCurrentBitmask)
-					pstMemoryAddress[iCurrentY + iCurrentX + i] = stTextColor;
-				else
-					pstMemoryAddress[iCurrentY + iCurrentX + i] = stBackgroundColor;
-
-				bCurrentBitmask = bCurrentBitmask >> 1;
-			}
-			
-			iCurrentY += iMemoryAreaWidth;
-		}
-
-		iCurrentX += FONT_ENGLISHWIDTH;
-	}
+	kInternalDrawTextWithFont(pstMemoryArea,pstMemoryAddress,iX,iY,stTextColor,stBackgroundColor,pcString,iLength,&g_fontSystemDefault_0);
 }
 
